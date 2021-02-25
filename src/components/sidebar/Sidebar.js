@@ -2,10 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import { SidebarItemData } from '../../data/SidebarData';
-import { sidebarChannels } from '../../data/SidebarData';
 import AddIcon from '@material-ui/icons/Add';
+import db from '../../firebase';
 
-function Sidebar() {
+function Sidebar(props) {
+    console.log(props)
+
+    const addChannels = () => {
+        const prompName = prompt("Enter channel name")
+        if (prompName) {
+            db.collection('rooms').add({
+                name: prompName
+            })
+        }
+    }
     return (
         <Container>
             <WorkSpaceContainer>
@@ -33,16 +43,17 @@ function Sidebar() {
                     <div>
                         channels
                     </div>
-                    <AddIcon />
+                    <AddIcon onClick={addChannels}/>
                 </NewChannelContainer>
+                
                 <ChannelsList>
-                        {
-                            sidebarChannels.map(channel => (
-                                <Channel>
-                                    {channel.item}
-                                </Channel>
-                            ))
-                        }
+                    {
+                        props.rooms.map(room => (
+                            <Channel>
+                                # {room.name}
+                            </Channel>  
+                        ))
+                    }
                 </ChannelsList>
             </ChannelsContainer>
         </Container>

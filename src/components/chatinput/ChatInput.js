@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SendIcon from '@material-ui/icons/Send';
+import AttachFileIcon from '@material-ui/icons/AttachFile';
 
 function ChatInput() {
     return (
@@ -8,6 +9,7 @@ function ChatInput() {
             <InputContainer>
                 <form>
                     <input type="text" placeholder="Message here..." />
+                    <File />
                     <SendButton>
                         <Send />
                     </SendButton>
@@ -69,3 +71,11 @@ const SendButton = styled.div`
 const Send = styled(SendIcon)`
 color: white;
 `;
+
+const File = styled(AttachFileIcon)`
+margin-right: 10px;
+width: 20px;
+height: 20px;
+cursor: pointer;
+`;
+

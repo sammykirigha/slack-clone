@@ -76,6 +76,6 @@ margin-top: 8px;
 
 
 const MessageContainer = styled.div`
-
+background: lightgray;
 `;
 

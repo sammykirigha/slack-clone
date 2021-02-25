@@ -9,7 +9,7 @@ function ChatMessage() {
             </UserAvatar>
             <Messagecontent>
                 <Name>
-                    Sammy
+                    Flora
                      <span>2/23/2021 11:13:44 AM</span>
                 </Name>
                 <Text>
@@ -27,6 +27,11 @@ const Container = styled.div`
  padding: 8px 20px;
  display: flex;
  align-items: center;
+
+ :hover {
+     border-bottom: 1px solid blue;
+     cursor: pointer;
+ }
 
 `;
 
